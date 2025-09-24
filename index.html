@@ -1,229 +1,238 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Badr Djemoui - Personal Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #444;
-            direction: rtl;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Badr Djemoui - Personal Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #007bff;
+      --primary-dark: #0056b3;
+      --bg: #f9f9f9;
+      --text: #333;
+      --card-bg: #fff;
+      --shadow: 0 6px 14px rgba(0,0,0,0.1);
+    }
 
-        .container {
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
+    body.dark {
+      --primary: #66b3ff;
+      --primary-dark: #3399ff;
+      --bg: #1e1e1e;
+      --text: #e0e0e0;
+      --card-bg: #2c2c2c;
+      --shadow: 0 6px 14px rgba(255,255,255,0.05);
+    }
 
-        h1, h2 {
-            text-align: center;
-            color: #333;
-        }
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      transition: background 0.4s, color 0.4s;
+    }
 
-        h2 {
-            margin-top: 40px;
-            margin-bottom: 20px;
-        }
+    header {
+      text-align: center;
+      padding: 30px 15px;
+      background: var(--primary);
+      color: #fff;
+      border-bottom-left-radius: 14px;
+      border-bottom-right-radius: 14px;
+      position: relative;
+    }
 
-        .info-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            padding: 10px;
-            border-bottom: 1px solid #eee;
-            border-radius: 5px;
-            background: #fafafa;
-        }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
 
-        .info-item label {
-            font-weight: 700;
-            flex: 1;
-        }
+    header p {
+      margin: 8px 0;
+    }
 
-        .info-item div {
-            flex: 2;
-            text-align: left;
-        }
+    header a {
+      color: #fff;
+      text-decoration: underline;
+    }
 
-        .skills, .projects {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-        }
+    /* زر Dark/Light Mode */
+    .theme-toggle {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: #fff;
+      color: var(--primary);
+      border: none;
+      padding: 8px 12px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s;
+    }
 
-        .skill, .project {
-            background: #f0f8ff;
-            border-radius: 8px;
-            padding: 15px;
-            flex: 1 1 200px;
-            text-align: center;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        }
+    .theme-toggle:hover {
+      transform: rotate(20deg);
+    }
 
-        .skill i, .project i {
-            font-size: 30px;
-            color: #007bff;
-            margin-bottom: 10px;
-        }
+    main {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+      display: grid;
+      gap: 40px;
+    }
 
-        .links a {
-            display: inline-block;
-            margin: 5px 10px;
-            color: #fff;
-            background: #007bff;
-            padding: 10px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: 0.3s;
-        }
+    section h2 {
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+      display: inline-block;
+      margin-bottom: 20px;
+      padding-bottom: 6px;
+      font-size: 1.3rem;
+    }
 
-        .links a:hover {
-            background: #0056b3;
-        }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 15px;
+    }
 
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 16px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
+    li {
+      background: var(--card-bg);
+      padding: 18px;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
 
-        .back-to-top:hover {
-            background-color: #0056b3;
-        }
+    li:hover {
+      background: #e9f3ff;
+      transform: translateY(-4px);
+    }
 
-        @media(max-width: 768px) {
-            .info-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+    body.dark li:hover {
+      background: #333d4d;
+    }
 
-            .info-item div {
-                text-align: right;
-            }
-        }
-    </style>
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    /* زر الرجوع للأعلى */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      box-shadow: var(--shadow);
+      display: none;
+      transition: background 0.3s;
+    }
+
+    .back-to-top:hover {
+      background: var(--primary-dark);
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+      li {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Badr Djemoui</h1>
-        <div class="info-item">
-            <label>البريد الإلكتروني:</label>
-            <div><a href="mailto:badrdjemoui@gmail.com">badrdjemoui@gmail.com</a></div>
-        </div>
-        <div class="info-item">
-            <label>الهاتف:</label>
-            <div>+213-668704231</div>
-        </div>
-        <div class="info-item">
-            <label>LinkedIn:</label>
-            <div><a href="https://www.linkedin.com/in/badr-djemoui-10469a14a/" target="_blank">زيارة الملف الشخصي</a></div>
-        </div>
-        <div class="info-item">
-            <label>GitHub:</label>
-            <div><a href="https://github.com/badrdjemoui/" target="_blank">زيارة المستودعات</a></div>
-        </div>
-        <div class="info-item">
-            <label>الأطفال:</label>
-            <div>02</div>
-        </div>
 
-        <!-- زر تحميل السيرة الذاتية -->
-       <div style="text-align:center; margin:20px 0;">
-    <a href="cv.pdf" download 
-       style="background:#28a745; color:#fff; padding:10px 20px; border-radius:5px; text-decoration:none; display:inline-block;">
-        <i class="fas fa-file-pdf"></i> تحميل السيرة الذاتية (PDF)
-    </a>
-</div>
+  <header>
+    <h1>Badr Djemoui</h1>
+    <p>Email: <a href="mailto:badrdjemoui@gmail.com">badrdjemoui@gmail.com</a> | Phone: +213-668704231</p>
+    <p>
+      LinkedIn: 
+      <a href="https://www.linkedin.com/in/badr-djemoui-10469a14a/" target="_blank">
+        LinkedIn Profile
+      </a>
+    </p>
+    <button class="theme-toggle" id="themeToggle" title="تغيير الوضع">
+      <i class="fas fa-moon"></i>
+    </button>
+  </header>
 
+  <main>
+    <section>
+      <h2><i class="fas fa-briefcase"></i> الخبرة المهنية</h2>
+      <ul>
+        <li><strong>SQL Server & Oracle Manager – Etat Civile in Amerie</strong><br>2012 – Present</li>
+        <li><strong>Freelance Mobile Developer</strong><br>Algeria | 2018 – Present</li>
+        <li><strong>Robotics Educator (Personal Projects)</strong><br>Algeria | 2021 – Present</li>
+      </ul>
+    </section>
 
-        <h2>الملخص المهني</h2>
-        <p>مطور تطبيقات موبايل وذكاء اصطناعي شغوف بخبرة في Flutter وAndroid وتعلم الآلة، أسعى لعقد لمدة سنة في دولة منطورة مثل دولتكم لاكتساب خبرة دولية والمساهمة في مشاريع مبتكرة.</p>
+    <section>
+      <h2><i class="fas fa-graduation-cap"></i> التعليم</h2>
+      <ul>
+        <li>Bachelor’s Degree in Computer Science, 2008 (IA Option)</li>
+        <li>Bachelor of Science in Life and Nature, 2001</li>
+      </ul>
+    </section>
 
-        <h2>المهارات</h2>
-        <div class="skills">
-            <div class="skill"><i class="fab fa-flutter"></i>Flutter & Dart</div>
-            <div class="skill"><i class="fab fa-android"></i>Android Development</div>
-            <div class="skill"><i class="fas fa-database"></i>Firebase Integration</div>
-            <div class="skill"><i class="fab fa-python"></i>Python & Machine Learning</div>
-            <div class="skill"><i class="fas fa-chart-line"></i>Data Analysis & AI</div>
-            <div class="skill"><i class="fab fa-react"></i>ReactJS</div>
-            <div class="skill"><i class="fas fa-robot"></i>Robotics Education</div>
-        </div>
+    <section>
+      <h2><i class="fas fa-cogs"></i> المهارات</h2>
+      <ul>
+        <li>Flutter & Android Studio Development</li>
+        <li>ReactJS & Firebase</li>
+        <li>SQL Server & Oracle Database Management</li>
+        <li>Artificial Intelligence & Machine Learning (Nanodegree)</li>
+      </ul>
+    </section>
 
-        <h2>التعليم</h2>
-        <div class="info-item"><label>مهندس علوم الكمبيوتر:</label><div>2008, تخصص الذكاء الاصطناعي</div></div>
-        <div class="info-item"><label>بكالوريوس علوم الحياة والطبيعة:</label><div>2001</div></div>
-        <div class="info-item"><label>Nanodegree:</label><div>Android Development & Machine Learning</div></div>
+    <section>
+      <h2><i class="fas fa-language"></i> اللغات</h2>
+      <ul>
+        <li>English (Intermediate – preparing for IELTS)</li>
+        <li>French (B1 – close to B2)</li>
+        <li>Arabic (Native)</li>
+      </ul>
+    </section>
+  </main>
 
-        <h2>الخبرة العملية</h2>
-        <div class="info-item">
-            <label>Freelance Mobile Developer:</label>
-            <div>Algeria | 2018 - Present<br>
-            تطوير تطبيقات Flutter وAndroid، دمج Firebase، تنفيذ ميزات AI للتنبؤ.</div>
-        </div>
-        <div class="info-item">
-            <label>Robotics Educator:</label>
-            <div>Algeria | 2021 - Present<br>
-            تصميم دروس روبوتية ومشاريع برمجية للأطفال، إدخال مفاهيم الذكاء الاصطناعي الأساسية.</div>
-        </div>
+  <footer>
+    © 2025 Badr Djemoui - All rights reserved.
+  </footer>
 
-        <h2>المشاريع</h2>
-        <div class="projects">
-            <div class="project">
-                <i class="fab fa-github"></i>
-                <h3>ToDoList App</h3>
-                <p>تطبيق لإدارة المهام باستخدام ReactJS وFirebase.</p>
-            </div>
-            <div class="project">
-                <i class="fab fa-github"></i>
-                <h3>AI Price Predictor</h3>
-                <p>نموذج ذكاء اصطناعي لتوقع الأسعار حسب الميزات المختلفة.</p>
-            </div>
-        </div>
+  <button class="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'});">↑</button>
 
-        <h2>اللغات</h2>
-        <div class="info-item"><label>العربية:</label><div>اللغة الأم</div></div>
-        <div class="info-item"><label>الإنجليزية:</label><div>بطلاقة</div></div>
-        <div class="info-item"><label>الفرنسية:</label><div>متوسط</div></div>
+  <script>
+    // زر الرجوع للأعلى
+    window.addEventListener('scroll', function() {
+      let button = document.querySelector('.back-to-top');
+      button.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
 
-        <h2>معلومات إضافية</h2>
-        <p>جاهز للانتقال إلى دولتكم لمدة سنة، متحمس للتجارب الثقافية والابتكار في التعليم.</p>
-
-        <div class="links" style="text-align:center; margin-top:20px;">
-            <a href="https://www.linkedin.com/in/badr-djemoui-10469a14a/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-            <a href="https://github.com/badrdjemoui/" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-            <a href="mailto:badrdjemoui@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-        </div>
-    </div>
-
-    <button class="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'});">↑</button>
-
-    <script>
-        window.addEventListener('scroll', function() {
-            let button = document.querySelector('.back-to-top');
-            button.style.display = window.scrollY > 300 ? 'block' : 'none';
-        });
-    </script>
+    // Dark/Light Mode Toggle
+    const toggleBtn = document.getElementById('themeToggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      toggleBtn.innerHTML = document.body.classList.contains('dark') 
+        ? '<i class="fas fa-sun"></i>' 
+        : '<i class="fas fa-moon"></i>';
+    });
+  </script>
 </body>
 </html>
-
-
