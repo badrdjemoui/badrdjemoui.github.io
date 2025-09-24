@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,7 +58,7 @@
       text-decoration: underline;
     }
 
-    /* زر Dark/Light Mode */
+    /* Dark/Light Mode Button */
     .theme-toggle {
       position: absolute;
       top: 15px;
@@ -127,7 +127,7 @@
       color: #888;
     }
 
-    /* زر الرجوع للأعلى */
+    /* Back to top button */
     .back-to-top {
       position: fixed;
       bottom: 20px;
@@ -176,21 +176,21 @@
     GitHub Profile
   </a>
 </p>
-      <!-- زر تحميل CV -->
+      <!-- Download CV Button -->
   <p>
     <a href="cv.pdf" download style="background:#28a745; color:#fff; padding:10px 15px; border-radius:8px; text-decoration:none; display:inline-block; margin-top:10px;">
       <i class="fas fa-file-pdf"></i> Download CV (PDF)
     </a>
   </p>
 
-    <button class="theme-toggle" id="themeToggle" title="تغيير الوضع">
+    <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
       <i class="fas fa-moon"></i>
     </button>
   </header>
 
   <main>
     <section>
-      <h2><i class="fas fa-briefcase"></i> الخبرة المهنية</h2>
+      <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
       <ul>
         <li><strong>SQL Server & Oracle Manager – Civil Status Office in the People’s Municipal Assembly (APC)</strong><br>2012 – Present</li>
         <li><strong>Freelance Mobile Developer</strong><br>Algeria | 2018 – Present</li>
@@ -199,15 +199,15 @@
     </section>
 
     <section>
-      <h2><i class="fas fa-graduation-cap"></i> التعليم</h2>
+      <h2><i class="fas fa-graduation-cap"></i> Education</h2>
       <ul>
-        <li>Bachelor’s Degree in Computer Science, 2008 (IA Option)</li>
+        <li>Bachelor’s Degree in Computer Science, 2008 (AI Option)</li>
         <li>Bachelor of Science in Life and Nature, 2001</li>
       </ul>
     </section>
 
     <section>
-      <h2><i class="fas fa-cogs"></i> المهارات</h2>
+      <h2><i class="fas fa-cogs"></i> Skills</h2>
       <ul>
         <li>Flutter & Android Studio Development</li>
         <li>ReactJS & Firebase</li>
@@ -217,7 +217,7 @@
     </section>
 
     <section>
-      <h2><i class="fas fa-language"></i> اللغات</h2>
+      <h2><i class="fas fa-language"></i> Languages</h2>
       <ul>
         <li>English (Intermediate – preparing for IELTS)</li>
         <li>French (B1 – close to B2)</li>
@@ -233,7 +233,7 @@
   <button class="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'});">↑</button>
 
   <script>
-    // زر الرجوع للأعلى
+    // Back to top button
     window.addEventListener('scroll', function() {
       let button = document.querySelector('.back-to-top');
       button.style.display = window.scrollY > 300 ? 'block' : 'none';
@@ -250,7 +250,3 @@
   </script>
 </body>
 </html>
-
-
-
-
